@@ -86,4 +86,24 @@ class ItemRepositoryTest {
             System.out.println(item.toString());
         }
     }
+
+    @Test
+    @DisplayName("@Query를 利用한 商品 照會 테스트")
+    public void findByItemDetailTest() {
+        this.createItemList();
+        List<Item> itemList = itemRepository.findByItemDetail("테스트 商品 詳細 說明");
+        for (Item item : itemList) {
+            System.out.println(item.toString());
+        }
+    }
+    
+    @Test
+    @DisplayName("nativeQuery 屬性을 利用한 商品 照會 테스트")
+    public void findByItemDetailByNative() {
+        this.createItemList();
+        List<Item> itemList = itemRepository.findByItemDetailByNative("테스트 商品 詳細 說明");
+        for (Item item : itemList) {
+            System.out.println(item.toString());
+        }
+    }
 }
